@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozttty App</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #fce4ec; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .mobile-frame { background: white; width: 350px; height: 600px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); overflow: hidden; position: relative; border: 6px solid #333; display: flex; flex-direction: column; }
+        .screen { display: none; padding: 20px; height: 100%; flex-direction: column; text-align: center; overflow-y: auto; }
+        .active { display: flex; }
+        .header { font-size: 32px; color: #d81b60; font-weight: bold; margin-top: 40px; }
+        .nav-buttons { margin-top: 50px; display: grid; gap: 15px; padding: 0 15px; }
+        .btn { background: #f06292; color: white; border: none; padding: 15px; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        .back-btn { position: absolute; top: 15px; right: 15px; background: #f8bbd0; color: #d81b60; border: none; border-radius: 50%; width: 30px; height: 30px; font-weight: bold; cursor: pointer; }
+        .content-text { font-size: 16px; line-height: 1.8; color: #333; text-align: right; background: #fff9fa; padding: 15px; border-radius: 10px; border-right: 4px solid #f06292; margin-top: 15px; }
+    </style>
+</head>
+<body>
+<div class="mobile-frame">
+    <div id="home" class="screen active">
+        <div class="header">Rozttty ✨</div>
+        <div class="nav-buttons">
+            <button class="btn" onclick="showScreen('firsts')">The Firsts</button>
+            <button class="btn" onclick="showScreen('wish')">My Wish</button>
+            <button class="btn" onclick="showScreen('memories')">Memories</button>
+        </div>
+    </div>
+    <div id="firsts" class="screen">
+        <button class="back-btn" onclick="showScreen('home')">✕</button>
+        <h2 style="color:#d81b60">The Firsts ✨</h2>
+        <div class="content-text">معاكي حسيت أحاسيس كتير لأول مرة زي أول مرة أحس إنى خايفة على حد.. أول مرة أحس إنى عاوزة أحضن حد كان إنتي. صلاة التراويح لما كنتي بتنامي على رجلي، ويوم الإسماعيلية كنت حاسة بأمان حقيقي. نجاحك بيسعدني أكتر من نجاحي.. أول كل حاجة حلوة كانت معاكي.</div>
+    </div>
+    <div id="wish" class="screen">
+        <button class="back-btn" onclick="showScreen('home')">✕</button>
+        <h2 style="color:#d81b60">My Wish 🌟</h2>
+        <div class="content-text">بتمنالك سعادة الدنيا كلها.. آتيتي أنتِ فآتى الحب.. حابة أقولك إنك كنتي شطورة أوي النهاردة، وقلبي عمره ماهيخوني.. بحبك ❤️</div>
+    </div>
+    <div id="memories" class="screen">
+        <button class="back-btn" onclick="showScreen('home')">✕</button>
+        <h2 style="color:#d81b60">Memories 💖</h2>
+        <div class="content-text">كل ذكرياتي معاك متتنسيش كلها سابت أثر جوايا لم ولن يمحى، كل شيء معاكي له طعم مختلف أثرك عليا وعلى قلبي مختلف.</div>
+    </div>
+</div>
+<script>
+    function showScreen(screenId) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(screenId).classList.add('active');
+    }
+</script>
+</body>
+</html>
