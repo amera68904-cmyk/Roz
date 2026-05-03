@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozty in Space ✨</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #02010a;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .stars-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle var(--duration) infinite;
+        }
+
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+        .mobile-frame {
+            width: 350px;
+            height: 620px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 150, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .screen { display: none; padding: 25px; height: 100%; flex-direction: column; overflow-y: auto; text-align: center; }
+        .active { display: flex; animation: fadeIn 0.5s; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .header-title { font-size: 38px; color: #81d4fa; margin-top: 50px; text-shadow: 0 0 10px #00bcd4; font-weight: bold; }
+        
+        .nav-buttons { margin-top: 40px; display: grid; gap: 12px; }
+        
+        .btn {
+            background: rgba(129, 212, 250, 0.15);
+            color: #81d4fa;
+            border: 1px solid #81d4fa;
+            padding: 14px;
+            border-radius: 15px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: #81d4fa; color: #02010a; box-shadow: 0 0 15px #81d4fa; }
+
+        .back-btn { align-self: flex-end; color: #ff80ab; cursor: pointer; font-weight: bold; margin-bottom: 10px; }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 15px;
+            line-height: 1.7;
+            font-size: 15px;
+            text-align: justify;
+            border-right: 3px solid #ff80ab;
+        }
+
+        img { width: 100%; border-radius: 15px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.2); }
+
+        .surprise-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f06292;
+            color: white;
+            border-radius: 15px;
+            font-weight: bold;
+            animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 18px;
+        }
+
+        @keyframes pop { from { transform: scale(0.5); } to { transform: scale(1); } }
+        
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+            color: #81d4fa;
+        }
+        
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .music-btn {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 128, 171, 0.2);
+            border: 1px solid #ff80ab;
+            color: #ff80ab;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="stars-container" id="stars"></div>
+
+<div class="mobile-frame">
+    <div id="home" class="screen active">
+        <div class="header-title">Rozty ✨</div>
+        <p style="color: #b0bec5;">In you, I found my world 🌍</p>
+        <div class="nav-buttons">
+            <button class="btn" onclick="showScreen('the-first')">The First</button>
+            <button class="btn" onclick="showScreen('my-wish')">My Wish</button>
+            <button class="btn" onclick="showScreen('memories')">Memories</button>
+            <button class="btn" onclick="showScreen('rozty-special')">Rozty</button>
+            <button class="btn" style="border-color: #ff80ab; color: #ff80ab;" onclick="showScreen('surprise')">Surprise! 🎁</button>
+        </div>
+    </div>
+
+    <div id="the-first" class="screen">
+        <span class="back-btn" onclick="showScreen('home')">العودة ←</span>
+        <h2>The First ✨</h2>
+        <div class="content-card">
+            معاكي حسيت أحاسيس كتير لأول مرة.. زي أول مرة أحس إني خايفة على حد بجد زي حوار القطة لما خربشتك، وأول مرة أحس إني عاوزة أحضن حد كان إنتي. أول حد ينام على سريري، وأول حد أهتم أعرف كل تفصيلة عنه. فاكرة التراويح لما كنتي بتنامي على رجلي؟ كان من احلى المشاعر اللى بحسها  ويوم الإسماعيلية لما كنا بنسأل على درس محمد صلاح  ورحنا المسجد وكنت نايمة على رجلك كنت اول مرة احس بأمان واحنا فى العربية برضه رايحين وكنا بنسمع اغاني سوا بالهاند فري بتاعتك اول مرة احس ان معايا حد بحبه بنتشارك حاجة بنحبها وكنا عاملين ماتشنج ادناءات أول حد احس انى عاوزة اشوفه احسن وانجح مني هو انتي نجاحك بيسعدني اكتر من نجاحي لما اخدتي شهادة من مستر ياسر وكنتوا واقفين تتصوروا كنت حاسة اكني فرحانة لبنتي البنت الشطورة اللذيذة المجتهدة المحبوبة دى صاحبتي اول مرة احس بالعجز لمااشوفك زعلانه او موجوعة ومش عارفة اتصرف اول كل حاجة حلوة كانت معاكي ولحد دلوقت مبحسش بحلاوة حاجة من غيرك انا شخص مبحبش اعيد كلامي بس معاكي لو مكنتيش فاهمة حاجة مستعدة اعيدها مليون مرة وعلى قلبي زي العسل ف الاخر حابة اقولك كنت دايما اسمع عن السعادة ولكن تذوقتها بفضلك.
+        </div>
+    </div>
+
+    <div id="my-wish" class="screen">
+        <span class="back-btn" onclick="showScreen('home')">العودة ←</span>
+        <h2>My Wish 🌟</h2>
+        <div class="content-card typing-cursor" id="wish-text"></div>
+    </div>
+
+    <div id="memories" class="screen">
+        <span class="back-btn" onclick="showScreen('home')">العودة ←</span>
+        <img src="IMG-20260501-WA0008.jpg" alt="Memory">
+        <p style="color: #ff80ab; font-weight: bold;">أقرب صورة لقلبي</p>
+        <div class="content-card">
+            كل ذكرياتي معاكي متتنسيش، كلها سابت أثر جوايا لم ولن يمحى. كل شيء معاكي له طعم مختلف، أثرك عليا وعلى قلبي مختلف، حتى حبي ليكي حب مختلف.
+        </div>
+    </div>
+
+    <div id="rozty-special" class="screen">
+        <span class="back-btn" onclick="showScreen('home')">العودة ←</span>
+        <img src="IMG-20260412-WA0016.jpg" alt="Rozty">
+        <h3 style="line-height: 1.6; color: #81d4fa;">إِذَا ضَحِكْتِ بِوَجْهِ الغَيْمِ<br>إِكْرَامًا لَهَا يُمْطِرُ</h3>
+    </div>
+
+    <div id="surprise" class="screen">
+        <span class="back-btn" onclick="showScreen('home')">العودة ←</span>
+        <h2>message for you 🎁</h2>
+        <p>كل مرة هتدخلي هنا هتلاقي رسالة جديدة من قلبي</p>
+        <div id="surprise-msg" class="surprise-box"></div>
+    </div>
+
+    <button class="music-btn" onclick="toggleMusic()">🎵 click here</button>
+    <audio id="bg-music" loop>
+        <source src="هو-احنا-فى-اي-مشوارنا-ده-ليه-بدون-موسيقى.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+    // النجوم
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = Math.random() * 3 + 'px';
+        star.style.width = size;
+        star.style.height = size;
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+        starsContainer.appendChild(star);
+    }
+
+    // رسايل المفاجأة
+    const surpriseMessages = [
+        "شكلك تحفة انهاردة ✨",
+        "اضحكي عشان مزعلكيش 💖",
+        "انتى اشطر رووووز فى الدنيا 🌟",
+        "انا فخورة بيكي وانهاردة وكل يوم 👑",
+        "كلي ياروزان 🍓",
+        "صليتي؟! 🤍",
+        "لو يومك مش الذ حاجة افتكري ان أميرة هنا وبتحبك",
+        "اتصوري حالا وابعتيلي عشان وحشاني 📸",
+        "مفيش حاجة تستاهل زعلك",
+        "خدي بوسة امووووواه (بصوتي) 😘",
+        "انتى الشخص اللى بحكيله كل حاجة ومش خايفة يشوفني وحشة",
+        "وحشتني كل حاجة معاكي",
+        "روحي اتفرجي ع حاجة بتحبيها افصلي شوية 🎬",
+        "ارسمي حاجة عسولة شبهك ووريني 🎨"
+    ];
+
+    // نص My Wish
+    const wishFullText = "بتمنالك سعادة الدنيا كلها، وأشوفك أسعد وأشطر وأنجح واحدة في بتمنى مشفكيش مضايقة ابدا و ف الاخر احب اقولك آتيتي أنتِ فآتى الحب.. انتِ أول من جعلني مستعدة أضحي بأي شيء مهما كان لأجله لااعلم لماذ ولكن مااعلمه جيدا انك تستحقي ، حابة أقولك إنك كنتي شطورة أوي النهاردة، وأفضل واحسن والذ  ممثلة شافتها عيني.. بتعرفي تمثلي كويس جدا قدام الناس، بس معايا بعرفك من عينك، وحتى لو عيني خانتني، قلبي عمره ما هيخوني.. بحبك ❤️";
+    let typingIndex = 0;
+    let typingDone = false;
+
+    function typeWish() {
+        if (typingIndex < wishFullText.length) {
+            document.getElementById('wish-text').innerText += wishFullText.charAt(typingIndex);
+            typingIndex++;
+            setTimeout(typeWish, 50);
+        } else {
+            typingDone = true;
+            document.getElementById('wish-text').classList.remove('typing-cursor');
+        }
+    }
+
+    function getRandomSurprise() {
+        let usedMessages = JSON.parse(localStorage.getItem('usedMessages') || '[]');
+        
+        if (usedMessages.length >= surpriseMessages.length) {
+            usedMessages = [];
+        }
+        
+        let availableMessages = surpriseMessages.filter(msg => !usedMessages.includes(msg));
+        let randomMsg = availableMessages[Math.floor(Math.random() * availableMessages.length)];
+        
+        usedMessages.push(randomMsg);
+        localStorage.setItem('usedMessages', JSON.stringify(usedMessages));
+        
+        document.getElementById('surprise-msg').innerText = randomMsg;
+    }
+
+    function showScreen(screenId) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(screenId).classList.add('active');
+        
+        if (screenId === 'surprise') {
+            getRandomSurprise();
+        }
+        
+        if (screenId === 'my-wish' && !typingDone) {
+            document.getElementById('wish-text').innerText = '';
+            typingIndex = 0;
+            document.getElementById('wish-text').classList.add('typing-cursor');
+            setTimeout(typeWish, 500);
+        }
+    }
+
+    // الموسيقى
+    let music = document.getElementById('bg-music');
+    let musicPlaying = false;
+    
+    function toggleMusic() {
+        if (musicPlaying) {
+            music.pause();
+            document.querySelector('.music-btn').innerText = '🎵 click here';
+        } else {
+            music.play();
+            document.querySelector('.music-btn').innerText = '⏸️ click here';
+        }
+        musicPlaying = !musicPlaying;
+    }
+
+    // أول ما تفتح الصفحة
+    getRandomSurprise();
+</script>
+
+</body>
+</html>
